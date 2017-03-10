@@ -38,5 +38,11 @@ public class ItemVenda {
 		valorTotal = valorUnitario * quantidade;
 	}
 	
+	public String toString (){
+		String aux = "";
+		aux += produto.getNome() + "	  srl: "+ produto.getSerial() + "   |   qnt: " + quantidade + 
+				"	Valor: R$" + valorTotal;
+		return aux;
+	}
 
 }

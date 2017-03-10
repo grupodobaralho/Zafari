@@ -6,8 +6,15 @@ public class Produto {
 	private String nome;
 	private String serial;
 	
-	public Produto(){
+	public Produto(double preco, String nome, String serial){
+		if(preco > 0){
+			this.preco = preco;
+		} else {
+			this.preco = -1;
+		}
 		
+		this.nome = nome;
+		this.serial = serial;		
 	}
 	
 	public double getPreco() {
