@@ -10,7 +10,8 @@ public class Nota {
 	private double valorFinal;
 	
 	public Nota(){
-		valorFinal = 0;	
+		//aa atributo calculado
+		//valorFinal = 0;	
 		cliente = null;
 		itensVenda = new ArrayList<ItemVenda>();
 	}
@@ -18,7 +19,7 @@ public class Nota {
 	public boolean incluirItemVenda(ItemVenda itemvenda){
 		if(itemvenda!=null){
 			itensVenda.add(itemvenda);
-			valorFinal += itemvenda.getValorTotal();
+			// valorFinal += itemvenda.getValorTotal();
 			return true;
 		}
 		return false;		
@@ -27,7 +28,7 @@ public class Nota {
 	public boolean removerItemVenda(ItemVenda itemvenda){
 		for(ItemVenda a : itensVenda){
 			if(a.equals(itemvenda)){
-				valorFinal = valorFinal - a.getValorTotal();
+				// valorFinal = valorFinal - a.getValorTotal();
 				itensVenda.remove(a);
 				return true;
 			}			
@@ -43,19 +44,39 @@ public class Nota {
 		return cliente;
 	}
 	
+	public double getValorTotal() {
+       double total = 0;
+       for (ItemVenda itemVenda : itensVenda) {
+    	   total += itemVenda.getValorItem();
+	   }
+       return total;
+	}
+	
 	public String imprimirNota(){
-		String listaItensVenda = "";
+		StringBuilder notaStr = new StringBuilder();
+		
 		for (ItemVenda a : itensVenda)
 		{
-			listaItensVenda += a.toString() + "\n";			
+			notaStr.append(a.toString());
+			notaStr.append("\n");			
 		}		
-		listaItensVenda += "Total:	R$" + valorFinal + "\n";
-		if(cliente==null){
-			return listaItensVenda;
-		} else{
-			listaItensVenda += "CPF do comprador:	" + cliente.getCpf();
-			return listaItensVenda;
-		}
 		
-	}
+		
+		notaStr.append("\nTotal:	R$ ");
+		notaStr.append(this.getValorTotal());
+		notaStr.append("\n");
+		
+		//if(cliente==null){
+		//	return listaItensVenda;
+		//} else{
+		//	listaItensVenda += "CPF do comprador:	" + cliente.getCpf();
+		//	return listaItensVenda;
+	
+		if(cliente !=null){
+			notaStr.append("\nCPF do comprador:	");
+			notaStr.append(cliente.getCpf());
+		}
+		return notaStr.toString();
+			
+	}	
 }
