@@ -1,23 +1,29 @@
 package unique;
 
 public class Cliente {
-	
-	private String cpf;
-	
-	public Cliente(){
-		
-	}
-	
-	public Cliente(String cpf){
-		this.cpf = cpf;
+
+	private String nome;
+
+	public Cliente() {
 	}
 
-	public String getCpf() {
-		return cpf;
+	public Cliente(String nome) {
+		this.nome = nome;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String toString() {
+		StringBuilder str = new StringBuilder();		
+		str.append("\nNome do Cliente: ");
+		str.append(nome);
+		return str.toString();
 	}
 
 }

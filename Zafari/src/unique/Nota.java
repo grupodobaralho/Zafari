@@ -72,9 +72,12 @@ public class Nota {
 		//	listaItensVenda += "CPF do comprador:	" + cliente.getCpf();
 		//	return listaItensVenda;
 	
-		if(cliente !=null){
-			notaStr.append("\nCPF do comprador:	");
-			notaStr.append(cliente.getCpf());
+//		if(cliente !=null){
+//			notaStr.append("\nCPF do comprador:	");
+//			notaStr.append(cliente.getCpf());
+//		}
+		if(cliente !=null) {
+			notaStr.append("\n"+cliente.toString());
 		}
 		return notaStr.toString();
 			
