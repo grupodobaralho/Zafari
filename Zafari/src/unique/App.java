@@ -1,8 +1,12 @@
 package unique;
 
+import java.util.Random;
+
 public class App {
 	
 	public static void main(String[] args){
+		
+		Random rand = new Random();
 		
 		//Preparando simulacao:
 		
@@ -43,7 +47,9 @@ public class App {
 		//-CPF na nota senhor?
 		//-Sim		
 		
-		ClientePF clientePF = new ClientePF();		
+		ClientePF clientePF = new ClientePF();	
+		
+		clientePF.setCodCliente(rand.nextInt(89999) + 10000);
 		
 		//-Informe nome e cpf por gentileza:
 		//Aragorn
@@ -66,6 +72,8 @@ public class App {
 		//-Pessoa Jurídica
 		
 		ClientePJ clientePJ = new ClientePJ();
+		
+		clientePJ.setCodCliente(rand.nextInt(89999) + 10000);
 		
 		//Informe o nome e cnpj por favor
 		//Grupo do Baralho

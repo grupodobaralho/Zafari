@@ -8,8 +8,8 @@ public class ClientePF extends Cliente{
 		super();		
 	}	
 
-	public ClientePF(String nome, String cpf) {
-		super(nome);		
+	public ClientePF(String nome, int codCliente, String cpf) {
+		super(nome, codCliente);		
 		// TODO Auto-generated constructor stub
 		this.cpf = cpf;
 	}
